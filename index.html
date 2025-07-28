@@ -1,467 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Magane Letsoalo - Web3 Developer & Smart Contract Engineer</title>
-  <meta name="description" content="Portfolio of Magane Letsoalo – Web3 builder, smart contract engineer, and open-source advocate." />
-  <link rel="icon" type="image/png" href="imgs/majin.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="style.css" /></noscript>
-  <style>
-    /* Critical CSS - Loads before full stylesheet */
-    :root {
-      --bg: #101010;
-      --surface: #18191a;
-      --border: #23272f;
-      --text: #fff;
-      --text-muted: #b0b0b0;
-      --accent: #0070f3;
-      --accent-hover: #0059c9;
-      --radius: 14px;
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
-      --spacing: 2.5rem;
-      --max-width: 1100px;
-      --section-spacing: 4rem;
-      --box-gap: 2rem;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', Arial, sans-serif;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-      color-scheme: dark;
-    }
-    .site-header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: var(--bg);
-      z-index: 100;
-    }
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--spacing);
-      box-sizing: border-box;
-    }
-    .section-title {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      font-weight: 800;
-      color: #fff;
-      margin: 0 0 2rem 0;
-    }
-    /* Hide non-critical elements until JS loads */
-    .about-slideshow,
-    #universe-bg,
-    .back-to-top {
-      opacity: 0;
-      visibility: hidden;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phenyo Morulane | CS Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #00ff88;
+            --text: #ffffff;
+            --text-secondary: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 25px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            font-size: 18px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 10% 2rem;
+        }
+
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .home-content {
+            max-width: 600px;
+        }
+
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .home-content h1 span {
+            color: var(--accent);
+        }
+
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-flex;
+            padding: 12px 28px;
+            background: var(--accent);
+            border-radius: 40px;
+            box-shadow: 0 0 10px var(--accent);
+            font-size: 16px;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--accent);
+            transform: scale(1.05);
+        }
+
+        .home-img {
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        .home-img .glowing-circle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-img .glowing-circle::after {
+            content: '';
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .glowing-circle span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(var(--accent), #00ccff);
+            border-radius: 50%;
+            animation: rotate 4s linear infinite;
+        }
+
+        .glowing-circle span:nth-child(1) {
+            filter: blur(10px);
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .glowing-circle .image {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            z-index: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image img {
+            max-width: 350px;
+            object-fit: cover;
+        }
+
+        .skills {
+            background-color: var(--secondary);
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+        }
+
+        .skills h2 span {
+            color: var(--accent);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.2);
+        }
+
+        .skill-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .python-icon {
+            color: #3776AB;
+        }
+
+        .csharp-icon {
+            color: #9b4f96;
+        }
+
+        .css-icon {
+            color: #2965f1;
+        }
+
+        .html-icon {
+            color: #e34c26;
+        }
+
+        .js-icon {
+            color: #f0db4f;
+        }
+
+        .ml-icon {
+            color: #00ff88;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+        }
+
+        .projects h2 span {
+            color: var(--accent);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        .project-links i {
+            margin-right: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--secondary);
+            padding: 8rem 10% 4rem;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+        }
+
+        .contact h2 span {
+            color: var(--accent);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .contact-text h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contact-text a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-size: 16px;
+            color: var(--text);
+            resize: none;
+        }
+
+        .input-box input:focus,
+        .input-box textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0 5px;
+            font-size: 16px;
+            color: var(--text-secondary);
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label,
+        .input-box textarea:focus ~ label,
+        .input-box textarea:valid ~ label {
+            top: -12px;
+            left: 10px;
+            font-size: 14px;
+            background: var(--primary);
+            color: var(--accent);
+        }
+
+        .contact-form .btn {
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 20px 10%;
+            text-align: center;
+            background-color: var(--secondary);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Animation classes */
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-content {
+                margin-bottom: 50px;
+            }
+
+            .home-img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .home-img .glowing-circle::after {
+                width: 280px;
+                height: 280px;
+            }
+
+            .image img {
+                max-width: 250px;
+            }
+
+            header {
+                padding: 20px 5%;
+            }
+
+            section {
+                padding: 8rem 5% 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Skill animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1s;
+        }
+    </style>
 </head>
 <body>
-  <canvas id="universe-bg" aria-hidden="true"></canvas>
-  
-  <!-- Sticky Header -->
-  <header class="site-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <div class="nav-left">
-        <span class="nav-logo">Magane Letsoalo</span>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <div class="nav-right">
-        <a href="https://github.com/KholdHart" class="nav-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-          <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true">
-            <path fill="currentColor" fill-rule="evenodd" d="M11 2.2c-4.85 0-8.8 3.95-8.8 8.8 0 3.89 2.52 7.19 6.02 8.36.44.08.6-.19.6-.43v-1.51c-2.45.53-2.96-1.18-2.96-1.18-.4-1.01-.98-1.28-.98-1.28-.8-.55.06-.54.06-.54.88.06 1.34.9 1.34.9.79 1.34 2.07.95 2.58.73.08-.57.31-.95.56-1.17-1.96-.22-4.03-.98-4.03-4.36 0-.96.34-1.75.89-2.37-.09-.22-.39-1.12.08-2.33 0 0 .74-.24 2.42.9.7-.19 1.45-.29 2.2-.29.75 0 1.5.1 2.2.29 1.68-1.14 2.42-.9 2.42-.9.47 1.21.17 2.11.08 2.33.55.62.89 1.41.89 2.37 0 3.39-2.07 4.13-4.04 4.35.32.28.6.83.6 1.67v2.48c0 .24.16.52.6.43C17.28 18.19 19.8 14.89 19.8 11c0-4.85-3.95-8.8-8.8-8.8Z" clip-rule="evenodd"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/magane-letsoalo-452444327/" class="nav-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-          <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true">
-            <rect width="22" height="22" rx="5" fill="currentColor" fill-opacity="0.1"/>
-            <path fill="currentColor" d="M6.6 8.2h2.2v7.6H6.6V8.2Zm1.1-3.1a1.27 1.27 0 1 1 0 2.54 1.27 1.27 0 0 1 0-2.54ZM11 8.2h2.1v1.02c.29-.55 1.02-1.13 2.1-1.13 2.25 0 2.67 1.48 2.67 3.4v4.31h-2.2v-3.82c0-.91-.02-2.08-1.27-2.08-1.28 0-1.48 1-1.48 2.02v3.88H11V8.2Z"/>
-          </svg>
-        </a>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <a href="#" class="logo">Phenyo<span>.</span></a>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <!-- About Section -->
-    <section id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <h1 id="about-heading" class="section-title">About</h1>
-        <div class="about-content">
-          <img class="about-img" id="about-img"
-            src="imgs/ChatGPT Image Jul 1, 2025, 04_35_26 PM.png"
-            alt="Portrait of Magane Letsoalo"
-            data-alt-src="imgs/Remilio-1745143888343.png"
-            loading="lazy"
-            width="220"
-            height="220"
-          />
-          <div class="about-bio" id="about-bio">
-            <span class="about-default" id="about-default">
-              Hey, I'm Magane, a CS student at BC ITversity. Passionate about web3, AI, coding and creativity.
-            </span>
-            <div class="about-slideshow" id="about-slideshow" aria-live="polite">
-              <div class="about-slide active">Web3 Developer.</div>
-              <div class="about-slide">Hands-on Ethereum smart contracts (Solidity).</div>
-              <div class="about-slide">Focus on secure, efficient DeFi systems.</div>
-              <div class="about-slide">Built and audited contracts via Cyfrin Updraft, CodeHawks.</div>
-              <div class="about-slide">Passionate about decentralized tech.</div>
-              <div class="about-slide">Expanding skills: Hardhat, Foundry, security best practices.</div>
-              <div class="about-slide">Strong software engineering foundation.</div>
-              <div class="about-slide">Computer Science student @ Belgium Campus.</div>
-              <div class="about-slide">Full stack experience: JavaScript, C#, HTML, CSS.</div>
-              <div class="about-slide">Confident with Git, GitHub for version control, collaboration, Agile workflows.</div>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, I'm <span>Phenyo Morulane</span></h1>
+            <h3>Computer Science Student</h3>
+            <p>Passionate about creating innovative solutions through code. Specializing in software development and machine learning with a focus on clean, efficient, and scalable solutions.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image">
+                    <img src="images/portofolio image.png" alt="Phenyo Morulane">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <h2 id="projects-heading" class="section-title">Projects</h2>
-        <div class="projects-grid" id="projects-grid">
-          <article class="project-card">
-            <h3 class="project-title">Fund-Me</h3>
-            <div class="project-stack">Solidity, Ethereum</div>
-            <p class="project-desc">Decentralized crowdfunding smart contract.</p>
-            <a class="project-link" href="https://github.com/KholdHart/Fund-Me" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="project-card">
-            <h3 class="project-title">PRG281-Project</h3>
-            <div class="project-stack">C#</div>
-            <p class="project-desc">C# solution for Sino-Japanese problem.</p>
-            <a class="project-link" href="https://github.com/KholdHart/PRG281-Project" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="project-card">
-            <h3 class="project-title">PRG282Project</h3>
-            <div class="project-stack">C#</div>
-            <p class="project-desc">Modular system in C#.</p>
-            <a class="project-link" href="https://github.com/KholdHart/PRG282Project" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="project-card">
-            <h3 class="project-title">ZkWhispers</h3>
-            <div class="project-stack">Solidity, zk, Blockchain</div>
-            <p class="project-desc">Blockchain-based privacy smart contract (in progress).</p>
-            <a class="project-link" href="https://github.com/KholdHart/ZkWhispers" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="project-card">
-            <h3 class="project-title">Ego-is-the-Enemy</h3>
-            <div class="project-stack">HTML, CSS</div>
-            <p class="project-desc">Minimal guide site.</p>
-            <a class="project-link" href="https://github.com/KholdHart/Ego-is-the-Enemy" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="project-card">
-            <h3 class="project-title">My-AI</h3>
-            <div class="project-stack">Python, AI</div>
-            <p class="project-desc">AI chatbot prototype.</p>
-            <a class="project-link" href="https://github.com/KholdHart/My-AI" target="_blank" rel="noopener noreferrer">
-              GitHub <span aria-hidden="true">→</span>
-            </a>
-          </article>
+    <section class="skills" id="skills">
+        <h2>My <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skill-item hidden floating">
+                <i class="fab fa-python skill-icon python-icon"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-item hidden floating delay-1">
+                <i class="fab fa-microsoft skill-icon csharp-icon"></i>
+                <h3>C#</h3>
+            </div>
+            <div class="skill-item hidden floating delay-2">
+                <i class="fab fa-css3-alt skill-icon css-icon"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill-item hidden floating delay-3">
+                <i class="fab fa-html5 skill-icon html-icon"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill-item hidden floating delay-4">
+                <i class="fab fa-js-square skill-icon js-icon"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-item hidden floating delay-5">
+                <i class="fas fa-brain skill-icon ml-icon"></i>
+                <h3>Machine Learning</h3>
+            </div>
         </div>
-        <div class="see-all-projects-wrapper">
-          <a class="see-all-btn-prominent" href="https://github.com/KholdHart?tab=repositories" target="_blank" rel="noopener noreferrer">
-            <span>See All Projects on GitHub</span>
-            <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" style="margin-left:8px;">
-              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 11h8m0 0-3-3m3 3-3 3"/>
-            </svg>
-          </a>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>My <span>Projects</span></h2>
+        <div class="projects-container">
+            <div class="project-card hidden">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Code Editor">
+                </div>
+                <div class="project-content">
+                    <h3>Python Web Scraper</h3>
+                    <p>A sophisticated web scraping tool built with Python and BeautifulSoup that extracts and organizes data from multiple sources with customizable parameters.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/username/project1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card hidden">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Machine Learning">
+                </div>
+                <div class="project-content">
+                    <h3>ML Sentiment Analysis</h3>
+                    <p>Machine learning model that analyzes sentiment in text using Natural Language Processing techniques with TensorFlow and NLTK libraries.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/username/project2" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card hidden">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce">
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce Website</h3>
+                    <p>A full-stack e-commerce platform built with C# ASP.NET Core for the backend and React for the frontend with payment integration and admin dashboard.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/username/project3" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Stack Section -->
-    <section id="stack" aria-labelledby="stack-heading">
-      <div class="container">
-        <h2 id="stack-heading" class="section-title">Stack</h2>
-        <ul class="stack-list">
-          <li title="Solidity">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" alt="Solidity" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="JavaScript">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="C#">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="HTML">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="CSS">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="SQL">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="Git">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="GitHub">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon" loading="lazy" width="48" height="48" style="background:#fff;border-radius:50%;" />
-          </li>
-          <li title="MongoDB">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="Postman">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="Docker">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li title="VS Code">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li style="grid-column: 3 / span 1;" title="Node.js">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="stack-icon" loading="lazy" width="48" height="48" />
-          </li>
-          <li style="grid-column: 4 / span 1;" title="Foundry">
-            <img src="https://avatars.githubusercontent.com/u/99892494?s=280&v=4" alt="Foundry" class="stack-icon" loading="lazy" width="48" height="48" style="background:#fff;border-radius:50%;" />
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" aria-labelledby="education-heading">
-      <div class="container">
-        <h2 id="education-heading" class="section-title">Education</h2>
-        <article class="education-card">
-          <h3 class="edu-degree">Bachelor in Computer Science</h3>
-          <div class="edu-school">Belgium Campus ITversity</div>
-          <div class="edu-dates">
-            <svg width="18" height="18" fill="none" viewBox="0 0 18 18" style="vertical-align:middle;margin-right:6px;">
-              <circle cx="9" cy="9" r="8" stroke="#0070f3" stroke-width="2"/>
-              <rect x="8.25" y="4" width="1.5" height="5.5" rx="0.75" fill="#0070f3"/>
-              <rect x="8.25" y="10.5" width="1.5" height="3.5" rx="0.75" fill="#0070f3"/>
-            </svg>
-            January 2023 – Present
-          </div>
-        </article>
-        <article class="education-card" style="margin-top:2rem;">
-          <h3 class="edu-degree">Fullstack Solidity</h3>
-          <div class="edu-school">Cyfrin Updraft</div>
-          <div class="edu-dates">
-            <svg width="18" height="18" fill="none" viewBox="0 0 18 18" style="vertical-align:middle;margin-right:6px;">
-              <circle cx="9" cy="9" r="8" stroke="#0070f3" stroke-width="2"/>
-              <rect x="8.25" y="4" width="1.5" height="5.5" rx="0.75" fill="#0070f3"/>
-              <rect x="8.25" y="10.5" width="1.5" height="3.5" rx="0.75" fill="#0070f3"/>
-            </svg>
-            January 2025 – Present
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <h2 id="contact-heading" class="section-title">Contact</h2>
-        <div class="contact-content">
-          <div class="contact-text">
-            <p>Feel free to reach out via email to connect or request my CV.</p>
-          </div>
-          <a class="contact-email" href="mailto:phillipletsoalo1234@gmail.com">phillipletsoalo1234@gmail.com</a>
-          <div class="contact-socials">
-            <a class="social-icon" href="https://github.com/KholdHart" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
-                <path fill="currentColor" fill-rule="evenodd" d="M11 2.2c-4.85 0-8.8 3.95-8.8 8.8 0 3.89 2.52 7.19 6.02 8.36.44.08.6-.19.6-.43v-1.51c-2.45.53-2.96-1.18-2.96-1.18-.4-1.01-.98-1.28-.98-1.28-.8-.55.06-.54.06-.54.88.06 1.34.9 1.34.9.79 1.34 2.07.95 2.58.73.08-.57.31-.95.56-1.17-1.96-.22-4.03-.98-4.03-4.36 0-.96.34-1.75.89-2.37-.09-.22-.39-1.12.08-2.33 0 0 .74-.24 2.42.9.7-.19 1.45-.29 2.2-.29.75 0 1.5.1 2.2.29 1.68-1.14 2.42-.9 2.42-.9.47 1.21.17 2.11.08 2.33.55.62.89 1.41.89 2.37 0 3.39-2.07 4.13-4.04 4.35.32.28.6.83.6 1.67v2.48c0 .24.16.52.6.43C17.28 18.19 19.8 14.89 19.8 11c0-4.85-3.95-8.8-8.8-8.8Z" clip-rule="evenodd"/>
-              </svg>
-            </a>
-            <a class="social-icon" href="https://www.linkedin.com/in/magane-letsoalo-452444327/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
-                <rect width="22" height="22" rx="5" fill="currentColor" fill-opacity="0.1"/>
-                <path fill="currentColor" d="M6.6 8.2h2.2v7.6H6.6V8.2Zm1.1-3.1a1.27 1.27 0 1 1 0 2.54 1.27 1.27 0 0 1 0-2.54ZM11 8.2h2.1v1.02c.29-.55 1.02-1.13 2.1-1.13 2.25 0 2.67 1.48 2.67 3.4v4.31h-2.2v-3.82c0-.91-.02-2.08-1.27-2.08-1.28 0-1.48 1-1.48 2.02v3.88H11V8.2Z"/>
-              </svg>
-            </a>
-          </div>
+    <section class="contact" id="contact">
+        <h2>Contact <span>Me</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item hidden">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <a href="mailto:phenyomoulane@gmail.com">phenyomorulane@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item hidden delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Phone</h3>
+                        <a href="tel:+1234567890">+27 67 278 0359</a>
+                    </div>
+                </div>
+                <div class="contact-item hidden delay-2">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/phenyo-morulane-b88104333/" target="_blank">linkedin.com/in/phenyo</a>
+                    </div>
+                </div>
+                <div class="contact-item hidden delay-3">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/spoja-10" target="_blank">github.com/phenyo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form hidden delay-4">
+                <form action="https://formsubmit.co/phenyomorulane@gmail.com" method="POST">
+                  <input type="hidden" name="_captcha" value="false">
+                  
+                    <div class="input-box">
+                        <input type="text" name="name" required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <textarea name="message" required></textarea>
+                        <label>Your Message</label>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Back to top button -->
-  <a href="#about" class="back-to-top" aria-label="Back to top">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 20V4M5 11L12 4L19 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/spoja-10"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/phenyo-morulane-b88104333/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2025 Phenyo Morulane. All Rights Reserved.</p>
+    </footer>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <span class="footer-content__main">&copy; 2025 Magane Letsoalo</span>
-        <span class="footer-content__luv">from kasi, with luv</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Load CSS asynchronously
-    function loadCSS() {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'style.css';
-      document.head.appendChild(link);
-    }
-    
-    // Load non-critical elements after page load
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load full CSS
-      if (document.querySelector('link[rel="stylesheet"][media="print"]')) {
-        loadCSS();
-      }
-      
-      // Initialize universe background
-      const canvas = document.getElementById('universe-bg');
-      if (canvas) {
-        canvas.style.opacity = '1';
-        canvas.style.visibility = 'visible';
-        initUniverseBg(canvas);
-      }
-      
-      // Initialize slideshow
-      initSlideshow();
-      
-      // Initialize back to top button
-      initBackToTop();
-      
-      // Initialize image toggle
-      initImageToggle();
-    });
-
-    // Universe background animation
-    function initUniverseBg(canvas) {
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      const stars = [];
-      const starCount = Math.floor(window.innerWidth * window.innerHeight / 1000);
-      
-      for (let i = 0; i < starCount; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5,
-          vx: Math.random() * 0.2 - 0.1,
-          vy: Math.random() * 0.2 - 0.1,
-          alpha: Math.random()
+    <script>
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
         });
-      }
-      
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(0, 112, 243, 0.1)';
-        
-        stars.forEach(star => {
-          ctx.beginPath();
-          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-          ctx.fill();
-          
-          star.x += star.vx;
-          star.y += star.vy;
-          
-          if (star.x < 0 || star.x > canvas.width) star.vx = -star.vx;
-          if (star.y < 0 || star.y > canvas.height) star.vy = -star.vy;
-          
-          star.alpha += (Math.random() - 0.5) * 0.02;
-          star.alpha = Math.max(0.1, Math.min(1, star.alpha));
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
         });
-        
-        requestAnimationFrame(draw);
-      }
-      
-      draw();
-      
-      window.addEventListener('resize', function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    }
 
-    // Slideshow functionality
-    function initSlideshow() {
-      const slideshow = document.getElementById('about-slideshow');
-      if (!slideshow) return;
-      
-      const slides = slideshow.querySelectorAll('.about-slide');
-      if (slides.length === 0) return;
-      
-      slideshow.style.opacity = '1';
-      slideshow.style.visibility = 'visible';
-      
-      let currentSlide = 0;
-      const totalSlides = slides.length;
-      
-      function showNextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % totalSlides;
-        slides[currentSlide].classList.add('active');
-      }
-      
-      // Start slideshow
-      document.getElementById('about-bio').classList.add('slideshow-active');
-      setInterval(showNextSlide, 3000);
-    }
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
 
-    // Back to top button
-    function initBackToTop() {
-      const backToTop = document.querySelector('.back-to-top');
-      if (!backToTop) return;
-      
-      backToTop.style.opacity = '1';
-      backToTop.style.visibility = 'visible';
-      
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
-      });
-    }
-
-    // Image toggle functionality
-    function initImageToggle() {
-      const img = document.getElementById('about-img');
-      if (!img) return;
-      
-      let originalSrc = img.src;
-      let altSrc = img.dataset.altSrc;
-      let isOriginal = true;
-      
-      img.addEventListener('click', function() {
-        img.src = isOriginal ? altSrc : originalSrc;
-        isOriginal = !isOriginal;
-      });
-    }
-  </script>
+        // Update active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            sections.forEach(sec => {
+                const top = window.scrollY;
+                const offset = sec.offsetTop - 150;
+                const height = sec.offsetHeight;
+                const id = sec.getAttribute('id');
+                
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        if (links.getAttribute('href') === `#${id}`) {
+                            links.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
