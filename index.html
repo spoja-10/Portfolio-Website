@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magane Letsoalo - Web3 Developer & Smart Contract Engineer</title>
+  <meta name="description" content="Portfolio of Magane Letsoalo – Web3 builder, smart contract engineer, and open-source advocate." />
+  <link rel="icon" type="image/png" href="imgs/majin.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  <style>
+    /* Critical CSS - Loads before full stylesheet */
+    :root {
+      --bg: #101010;
+      --surface: #18191a;
+      --border: #23272f;
+      --text: #fff;
+      --text-muted: #b0b0b0;
+      --accent: #0070f3;
+      --accent-hover: #0059c9;
+      --radius: 14px;
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+      --spacing: 2.5rem;
+      --max-width: 1100px;
+      --section-spacing: 4rem;
+      --box-gap: 2rem;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      box-sizing: border-box;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 2rem 0;
+    }
+    /* Hide non-critical elements until JS loads */
+    .about-slideshow,
+    #universe-bg,
+    .back-to-top {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="universe-bg" aria-hidden="true"></canvas>
+  
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <div class="nav-left">
+        <span class="nav-logo">Magane Letsoalo</span>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://github.com/KholdHart" class="nav-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true">
+            <path fill="currentColor" fill-rule="evenodd" d="M11 2.2c-4.85 0-8.8 3.95-8.8 8.8 0 3.89 2.52 7.19 6.02 8.36.44.08.6-.19.6-.43v-1.51c-2.45.53-2.96-1.18-2.96-1.18-.4-1.01-.98-1.28-.98-1.28-.8-.55.06-.54.06-.54.88.06 1.34.9 1.34.9.79 1.34 2.07.95 2.58.73.08-.57.31-.95.56-1.17-1.96-.22-4.03-.98-4.03-4.36 0-.96.34-1.75.89-2.37-.09-.22-.39-1.12.08-2.33 0 0 .74-.24 2.42.9.7-.19 1.45-.29 2.2-.29.75 0 1.5.1 2.2.29 1.68-1.14 2.42-.9 2.42-.9.47 1.21.17 2.11.08 2.33.55.62.89 1.41.89 2.37 0 3.39-2.07 4.13-4.04 4.35.32.28.6.83.6 1.67v2.48c0 .24.16.52.6.43C17.28 18.19 19.8 14.89 19.8 11c0-4.85-3.95-8.8-8.8-8.8Z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/magane-letsoalo-452444327/" class="nav-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true">
+            <rect width="22" height="22" rx="5" fill="currentColor" fill-opacity="0.1"/>
+            <path fill="currentColor" d="M6.6 8.2h2.2v7.6H6.6V8.2Zm1.1-3.1a1.27 1.27 0 1 1 0 2.54 1.27 1.27 0 0 1 0-2.54ZM11 8.2h2.1v1.02c.29-.55 1.02-1.13 2.1-1.13 2.25 0 2.67 1.48 2.67 3.4v4.31h-2.2v-3.82c0-.91-.02-2.08-1.27-2.08-1.28 0-1.48 1-1.48 2.02v3.88H11V8.2Z"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h1 id="about-heading" class="section-title">About</h1>
+        <div class="about-content">
+          <img class="about-img" id="about-img"
+            src="imgs/ChatGPT Image Jul 1, 2025, 04_35_26 PM.png"
+            alt="Portrait of Magane Letsoalo"
+            data-alt-src="imgs/Remilio-1745143888343.png"
+            loading="lazy"
+            width="220"
+            height="220"
+          />
+          <div class="about-bio" id="about-bio">
+            <span class="about-default" id="about-default">
+              Hey, I'm Magane, a CS student at BC ITversity. Passionate about web3, AI, coding and creativity.
+            </span>
+            <div class="about-slideshow" id="about-slideshow" aria-live="polite">
+              <div class="about-slide active">Web3 Developer.</div>
+              <div class="about-slide">Hands-on Ethereum smart contracts (Solidity).</div>
+              <div class="about-slide">Focus on secure, efficient DeFi systems.</div>
+              <div class="about-slide">Built and audited contracts via Cyfrin Updraft, CodeHawks.</div>
+              <div class="about-slide">Passionate about decentralized tech.</div>
+              <div class="about-slide">Expanding skills: Hardhat, Foundry, security best practices.</div>
+              <div class="about-slide">Strong software engineering foundation.</div>
+              <div class="about-slide">Computer Science student @ Belgium Campus.</div>
+              <div class="about-slide">Full stack experience: JavaScript, C#, HTML, CSS.</div>
+              <div class="about-slide">Confident with Git, GitHub for version control, collaboration, Agile workflows.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="section-title">Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+          <article class="project-card">
+            <h3 class="project-title">Fund-Me</h3>
+            <div class="project-stack">Solidity, Ethereum</div>
+            <p class="project-desc">Decentralized crowdfunding smart contract.</p>
+            <a class="project-link" href="https://github.com/KholdHart/Fund-Me" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">PRG281-Project</h3>
+            <div class="project-stack">C#</div>
+            <p class="project-desc">C# solution for Sino-Japanese problem.</p>
+            <a class="project-link" href="https://github.com/KholdHart/PRG281-Project" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">PRG282Project</h3>
+            <div class="project-stack">C#</div>
+            <p class="project-desc">Modular system in C#.</p>
+            <a class="project-link" href="https://github.com/KholdHart/PRG282Project" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">ZkWhispers</h3>
+            <div class="project-stack">Solidity, zk, Blockchain</div>
+            <p class="project-desc">Blockchain-based privacy smart contract (in progress).</p>
+            <a class="project-link" href="https://github.com/KholdHart/ZkWhispers" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">Ego-is-the-Enemy</h3>
+            <div class="project-stack">HTML, CSS</div>
+            <p class="project-desc">Minimal guide site.</p>
+            <a class="project-link" href="https://github.com/KholdHart/Ego-is-the-Enemy" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">My-AI</h3>
+            <div class="project-stack">Python, AI</div>
+            <p class="project-desc">AI chatbot prototype.</p>
+            <a class="project-link" href="https://github.com/KholdHart/My-AI" target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+        <div class="see-all-projects-wrapper">
+          <a class="see-all-btn-prominent" href="https://github.com/KholdHart?tab=repositories" target="_blank" rel="noopener noreferrer">
+            <span>See All Projects on GitHub</span>
+            <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" style="margin-left:8px;">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 11h8m0 0-3-3m3 3-3 3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section id="stack" aria-labelledby="stack-heading">
+      <div class="container">
+        <h2 id="stack-heading" class="section-title">Stack</h2>
+        <ul class="stack-list">
+          <li title="Solidity">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" alt="Solidity" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="C#">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="HTML">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="SQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-icon" loading="lazy" width="48" height="48" style="background:#fff;border-radius:50%;" />
+          </li>
+          <li title="MongoDB">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="Postman">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="Docker">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li title="VS Code">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li style="grid-column: 3 / span 1;" title="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="stack-icon" loading="lazy" width="48" height="48" />
+          </li>
+          <li style="grid-column: 4 / span 1;" title="Foundry">
+            <img src="https://avatars.githubusercontent.com/u/99892494?s=280&v=4" alt="Foundry" class="stack-icon" loading="lazy" width="48" height="48" style="background:#fff;border-radius:50%;" />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <h2 id="education-heading" class="section-title">Education</h2>
+        <article class="education-card">
+          <h3 class="edu-degree">Bachelor in Computer Science</h3>
+          <div class="edu-school">Belgium Campus ITversity</div>
+          <div class="edu-dates">
+            <svg width="18" height="18" fill="none" viewBox="0 0 18 18" style="vertical-align:middle;margin-right:6px;">
+              <circle cx="9" cy="9" r="8" stroke="#0070f3" stroke-width="2"/>
+              <rect x="8.25" y="4" width="1.5" height="5.5" rx="0.75" fill="#0070f3"/>
+              <rect x="8.25" y="10.5" width="1.5" height="3.5" rx="0.75" fill="#0070f3"/>
+            </svg>
+            January 2023 – Present
+          </div>
+        </article>
+        <article class="education-card" style="margin-top:2rem;">
+          <h3 class="edu-degree">Fullstack Solidity</h3>
+          <div class="edu-school">Cyfrin Updraft</div>
+          <div class="edu-dates">
+            <svg width="18" height="18" fill="none" viewBox="0 0 18 18" style="vertical-align:middle;margin-right:6px;">
+              <circle cx="9" cy="9" r="8" stroke="#0070f3" stroke-width="2"/>
+              <rect x="8.25" y="4" width="1.5" height="5.5" rx="0.75" fill="#0070f3"/>
+              <rect x="8.25" y="10.5" width="1.5" height="3.5" rx="0.75" fill="#0070f3"/>
+            </svg>
+            January 2025 – Present
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="section-title">Contact</h2>
+        <div class="contact-content">
+          <div class="contact-text">
+            <p>Feel free to reach out via email to connect or request my CV.</p>
+          </div>
+          <a class="contact-email" href="mailto:phillipletsoalo1234@gmail.com">phillipletsoalo1234@gmail.com</a>
+          <div class="contact-socials">
+            <a class="social-icon" href="https://github.com/KholdHart" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+                <path fill="currentColor" fill-rule="evenodd" d="M11 2.2c-4.85 0-8.8 3.95-8.8 8.8 0 3.89 2.52 7.19 6.02 8.36.44.08.6-.19.6-.43v-1.51c-2.45.53-2.96-1.18-2.96-1.18-.4-1.01-.98-1.28-.98-1.28-.8-.55.06-.54.06-.54.88.06 1.34.9 1.34.9.79 1.34 2.07.95 2.58.73.08-.57.31-.95.56-1.17-1.96-.22-4.03-.98-4.03-4.36 0-.96.34-1.75.89-2.37-.09-.22-.39-1.12.08-2.33 0 0 .74-.24 2.42.9.7-.19 1.45-.29 2.2-.29.75 0 1.5.1 2.2.29 1.68-1.14 2.42-.9 2.42-.9.47 1.21.17 2.11.08 2.33.55.62.89 1.41.89 2.37 0 3.39-2.07 4.13-4.04 4.35.32.28.6.83.6 1.67v2.48c0 .24.16.52.6.43C17.28 18.19 19.8 14.89 19.8 11c0-4.85-3.95-8.8-8.8-8.8Z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            <a class="social-icon" href="https://www.linkedin.com/in/magane-letsoalo-452444327/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+                <rect width="22" height="22" rx="5" fill="currentColor" fill-opacity="0.1"/>
+                <path fill="currentColor" d="M6.6 8.2h2.2v7.6H6.6V8.2Zm1.1-3.1a1.27 1.27 0 1 1 0 2.54 1.27 1.27 0 0 1 0-2.54ZM11 8.2h2.1v1.02c.29-.55 1.02-1.13 2.1-1.13 2.25 0 2.67 1.48 2.67 3.4v4.31h-2.2v-3.82c0-.91-.02-2.08-1.27-2.08-1.28 0-1.48 1-1.48 2.02v3.88H11V8.2Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top button -->
+  <a href="#about" class="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 20V4M5 11L12 4L19 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-content__main">&copy; 2025 Magane Letsoalo</span>
+        <span class="footer-content__luv">from kasi, with luv</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Load CSS asynchronously
+    function loadCSS() {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'style.css';
+      document.head.appendChild(link);
+    }
+    
+    // Load non-critical elements after page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load full CSS
+      if (document.querySelector('link[rel="stylesheet"][media="print"]')) {
+        loadCSS();
+      }
+      
+      // Initialize universe background
+      const canvas = document.getElementById('universe-bg');
+      if (canvas) {
+        canvas.style.opacity = '1';
+        canvas.style.visibility = 'visible';
+        initUniverseBg(canvas);
+      }
+      
+      // Initialize slideshow
+      initSlideshow();
+      
+      // Initialize back to top button
+      initBackToTop();
+      
+      // Initialize image toggle
+      initImageToggle();
+    });
+
+    // Universe background animation
+    function initUniverseBg(canvas) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const stars = [];
+      const starCount = Math.floor(window.innerWidth * window.innerHeight / 1000);
+      
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          vx: Math.random() * 0.2 - 0.1,
+          vy: Math.random() * 0.2 - 0.1,
+          alpha: Math.random()
+        });
+      }
+      
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 112, 243, 0.1)';
+        
+        stars.forEach(star => {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+          ctx.fill();
+          
+          star.x += star.vx;
+          star.y += star.vy;
+          
+          if (star.x < 0 || star.x > canvas.width) star.vx = -star.vx;
+          if (star.y < 0 || star.y > canvas.height) star.vy = -star.vy;
+          
+          star.alpha += (Math.random() - 0.5) * 0.02;
+          star.alpha = Math.max(0.1, Math.min(1, star.alpha));
+        });
+        
+        requestAnimationFrame(draw);
+      }
+      
+      draw();
+      
+      window.addEventListener('resize', function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+
+    // Slideshow functionality
+    function initSlideshow() {
+      const slideshow = document.getElementById('about-slideshow');
+      if (!slideshow) return;
+      
+      const slides = slideshow.querySelectorAll('.about-slide');
+      if (slides.length === 0) return;
+      
+      slideshow.style.opacity = '1';
+      slideshow.style.visibility = 'visible';
+      
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      
+      function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+      }
+      
+      // Start slideshow
+      document.getElementById('about-bio').classList.add('slideshow-active');
+      setInterval(showNextSlide, 3000);
+    }
+
+    // Back to top button
+    function initBackToTop() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (!backToTop) return;
+      
+      backToTop.style.opacity = '1';
+      backToTop.style.visibility = 'visible';
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+    }
+
+    // Image toggle functionality
+    function initImageToggle() {
+      const img = document.getElementById('about-img');
+      if (!img) return;
+      
+      let originalSrc = img.src;
+      let altSrc = img.dataset.altSrc;
+      let isOriginal = true;
+      
+      img.addEventListener('click', function() {
+        img.src = isOriginal ? altSrc : originalSrc;
+        isOriginal = !isOriginal;
+      });
+    }
+  </script>
+</body>
+</html>
